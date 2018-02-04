@@ -1,4 +1,39 @@
-.sub {
-    font-size: 16px;
-    color: red;
+.tb {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    height: 120px;
+}
+
+.tb .tb-menu {
+    margin-left: 24px;
+    color: #007fff;
+    font-size: 31px;
+}
+
+.tb .tb-lo {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.tb .tb-lo .tb-lo-t {
+    color: #007fff;
+    font-size: 31px;
+}
+
+.circle {
+    font-size: 0;
+    line-height: 0;
+    width: 0;
+    height: 0;
+    border-radius: 20px;
+    border: 2px solid #007fff;
+    align-self: center;
+}
+
+
+.test {
+    height: 120px;
+    background-color: red;
 }

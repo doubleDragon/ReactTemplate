@@ -1,6 +1,7 @@
 import React from "react";
-import {Link,withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import './home.css';
+import logo from '../../images/ic_logo.svg';
 
 
 class Home extends React.Component{
@@ -17,19 +18,19 @@ class Home extends React.Component{
     render() {
         return (
             <div>
-                <h1>this is Home page header</h1>
-                <p>this is content in Home Page</p>
+                <div className="tb">
+                    <img src={logo} alt=""/>
+                    <div className='tb-menu'>
+                        首页
+                    </div>
 
-                <button onClick={this.handleClick}>点击测试</button>
+                    <div className="tb-lo">
+                        <span className='tb-lo-t'>登录</span>
+                        <span className='circle ml10'/>
+                        <span className='tb-lo-t ml10'>注册</span>
 
-                <div>
-                    <Link to='/about'>intent to about</Link>
+                    </div>
                 </div>
-
-                <div className='sub'>
-                    this is sub text
-                </div>
-
             </div>
         )
     }
