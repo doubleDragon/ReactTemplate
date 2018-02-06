@@ -5,11 +5,10 @@ import ReactDOM from 'react-dom';
 import './lib/flexible/flexible';
 import './lib/flexible/flexible_css.js';
 
-
 import './index.css';
 import App from './components/app';
 
-
+import 'whatwg-fetch';
 
 ReactDOM.render(
     (<HashRouter>

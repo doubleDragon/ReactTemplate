@@ -1,3 +1,5 @@
+import Promise from 'promise-polyfill';
+
 function ajax(method, url, data) {
     let request = new XMLHttpRequest();
     return new Promise(function (resolve, reject) {
@@ -15,4 +17,27 @@ function ajax(method, url, data) {
     });
 }
 
-export default {ajax};
+
+
+function get(url, hasParam=false) {
+    const params = {
+        suid: '123123123',
+        ab: 'welcome_3',
+        src: 'web'
+    };
+    if(!hasParam) {
+        url = url + "?";
+    }
+
+    for(let key in params) {
+        url = url + '&' + key +'=' + params[key]
+    }
+
+    console.log('url: ', url);
+
+    return fetch(url, {
+        method: 'GET'
+    });
+}
+
+export default {ajax, get};

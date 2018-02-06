@@ -22,7 +22,7 @@ export default class HomeItem extends React.Component{
                     </div>
 
                     <div className='hi-c-1'>
-                        {this.props.item.name}
+                        {this.props.item.user.username}
                     </div>
 
                     <div className='ml10'>
@@ -30,7 +30,7 @@ export default class HomeItem extends React.Component{
                     </div>
 
                     <div className='hi-c-1 ml10'>
-                        {this.props.item.time}
+                        {this.props.item.createdAt}
                     </div>
 
                     <div className='ml10'>
@@ -39,7 +39,7 @@ export default class HomeItem extends React.Component{
 
 
                     <div className='hi-c-1 ml10'>
-                        {this.props.item.count + '次阅读'}
+                        {this.props.item.viewsCount + '次阅读'}
                     </div>
 
                 </div>

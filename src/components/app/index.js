@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import './app.css';
 import About from '../about';
-import Home from '../home';
+import HomeContainer from '../home/home_container';
 import Test from '../test';
 
 const News = () => {
@@ -19,7 +19,7 @@ export default class App extends Component {
         return (
             <div className='app'>
                 <Switch>
-                    <Route path="/" exact component={Home}/>
+                    <Route path="/" exact component={HomeContainer}/>
                     <Route path="/about" component={About}/>
                     <Route path="/new" component={News}/>
                     <Route path="/test" component={Test}/>

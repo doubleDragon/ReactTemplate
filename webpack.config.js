@@ -8,12 +8,12 @@ const paths = {
     SRC: path.resolve(__dirname, 'src')
 };
 
-
-console.log(paths.DIST);
-
 module.exports = {
 
-    entry: path.join(paths.SRC, 'index.js'),
+    entry: [
+        path.join(paths.SRC, 'index.js'),
+        'whatwg-fetch'
+    ],
 
     output: {
         filename: '[hash].bundle.js',
