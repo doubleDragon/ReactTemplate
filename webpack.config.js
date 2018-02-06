@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const px2rem = require('postcss-px2rem');
 
 const paths = {
@@ -7,26 +8,46 @@ const paths = {
     SRC: path.resolve(__dirname, 'src')
 };
 
+
 console.log(paths.DIST);
 
 module.exports = {
+
     entry: path.join(paths.SRC, 'index.js'),
 
     output: {
-        filename: 'bundle.js',
+        filename: '[hash].bundle.js',
         path: paths.DIST,
         publicPath: '/'
     },
     devtool: "cheap-module-eval-source-map",
 
+    devServer: {
+        port: 3000,
+        proxy: {
+            "/api": {
+                target: "https://recommender-api-ms.juejin.im/v1/",
+                pathRewrite: {
+                    '^/api': ''
+                },
+                changeOrigin: true
+            }
+        }
+    },
+
     module: {
         rules: [
             {
                 test: /\.(png|jpg|gif|svg)$/,
+                exclude: /node_modules/,
                 use: [
                     {
                         loader: 'file-loader',
-                        options: {}
+                        options: {
+                            //[name] means origin name
+                            name: '[hash].[ext]',
+                            outputPath: 'images/'
+                        }
                     }
                 ]
             },
@@ -37,20 +58,24 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [
-                    {loader: 'style-loader'},
-                    {loader: 'css-loader'},
-                    {
-                        loader: 'postcss-loader',
-                        options: {
-                            plugins: () => {
-                                return [
-                                    px2rem({remUnit: 75})
-                                ]
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: [
+                        // {loader: "css-loader"},
+                        "css-loader",
+                        {
+                            loader: 'postcss-loader',
+                            options: {
+                                plugins: () => {
+                                    return [
+                                        px2rem({remUnit: 75})
+                                    ]
+                                }
                             }
                         }
-                    },]
-            },
+                    ]
+                })
+            }
         ]
 
     },
@@ -58,6 +83,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'react-template app',
             template: path.join(paths.SRC, 'index.html')
-        })
+        }),
+        new ExtractTextPlugin('css/styles.css')
     ]
 };

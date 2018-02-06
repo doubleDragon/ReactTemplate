@@ -17,12 +17,14 @@ export default class App extends Component {
 
     render() {
         return (
-            <Switch>
-                <Route path="/" exact component={Home}/>
-                <Route path="/about" component={About}/>
-                <Route path="/new" component={News}/>
-                <Route path="/test" component={Test}/>
-            </Switch>
+            <div className='app'>
+                <Switch>
+                    <Route path="/" exact component={Home}/>
+                    <Route path="/about" component={About}/>
+                    <Route path="/new" component={News}/>
+                    <Route path="/test" component={Test}/>
+                </Switch>
+            </div>
         );
     }
 }

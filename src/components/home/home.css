@@ -1,39 +1,66 @@
+.Home {
+}
+
 .tb {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 120px;
+    background-color: white;
+}
+
+.tb-c{
     display: flex;
     align-items: center;
     padding: 0 15px;
-    height: 120px;
+    height: 100%;
 }
 
-.tb .tb-menu {
+.tb-c .tb-c-menu {
     margin-left: 24px;
     color: #007fff;
     font-size: 31px;
 }
 
-.tb .tb-lo {
+.tb-c .tb-c-lo {
     flex: 1;
     display: flex;
     justify-content: flex-end;
 }
 
-.tb .tb-lo .tb-lo-t {
+.tb-c .tb-c-lo .tb-c-lo-t {
     color: #007fff;
     font-size: 31px;
 }
 
-.circle {
-    font-size: 0;
-    line-height: 0;
-    width: 0;
-    height: 0;
-    border-radius: 20px;
+.tb-c .tb-c-lo .circle {
     border: 2px solid #007fff;
     align-self: center;
 }
 
+.content {
+    padding-top: 120px;
+}
 
-.test {
-    height: 120px;
-    background-color: red;
+.content .c-h {
+    margin-top: 42px;
+    height: 118px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: 0 48px;
+}
+.content .c-h .c-h-l {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.content .c-h .c-h-r {
+    font-size: 24px;
+}
+
+.content .c-i {
+
 }

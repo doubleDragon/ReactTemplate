@@ -1,5 +1,18 @@
 body {
+    font-family: sans-serif;
+}
+
+* {
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    list-style-type: none;
+    outline: medium
+}
+
+em, i {
+    font-style: normal;
+}
+
+li {
+    list-style-type: none;
 }
